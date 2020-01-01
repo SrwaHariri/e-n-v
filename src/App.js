@@ -35,9 +35,7 @@ componentWillUnmount() {
     return (
       <div className="App">
         <div className="container" ref={this.container}>
-            <button type="button" className="button" onClick={this.handleButtonClick}>
-            <Logo ></Logo>
-            </button>
+            
             {this.state.open && (
             <div className="dropdown">
               <ul>
@@ -48,6 +46,9 @@ componentWillUnmount() {
               </ul>
             </div>
           )}
+          <button type="button" className="button" onClick={this.handleButtonClick}>
+            <Logo ></Logo>
+            </button>
           </div>
       </div>
     );
