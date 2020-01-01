@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './components/Logo';
 import './App.scss';
-
+import cross from './components/cross.svg'
 
 
 class App extends React.Component {
@@ -17,7 +17,11 @@ class App extends React.Component {
       };
     });
   };
- 
+  handleClickCross = () =>{
+    this.setState({
+      open: false,
+    });
+  }
   handleClickOutside = event => {
     if (this.container.current && !this.container.current.contains(event.target)) {
       this.setState({
@@ -35,9 +39,13 @@ componentWillUnmount() {
     return (
       <div className="App">
         <div className="container" ref={this.container}>
+          <button type="button" className="button" onClick={this.handleButtonClick}>
+            <Logo ></Logo>
+            </button>
             
             {this.state.open && (
             <div className="dropdown">
+            <img src={cross} className="cross" alt="cross" onClick={this.handleClickCross}/>
               <ul>
                 <li>Option 1</li>
                 <li>Option 2</li>
@@ -46,9 +54,6 @@ componentWillUnmount() {
               </ul>
             </div>
           )}
-          <button type="button" className="button" onClick={this.handleButtonClick}>
-            <Logo ></Logo>
-            </button>
           </div>
       </div>
     );
